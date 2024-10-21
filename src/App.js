@@ -56,7 +56,12 @@ export default function App() {
   const send = (e) => {
     e.preventDefault();
 
-    if (title && date && description) {
+    if (emailInput.length === 0) {
+      alert('Please add at least one email ID');
+      return; // Stop form submission if no email is added
+    }
+
+    if (title && date && description && level) {
       alert('Form submitted!!')
 
       const newArray = {
@@ -80,7 +85,7 @@ export default function App() {
       });
 
 
-     
+
       setShow(true);
 
 
@@ -106,16 +111,17 @@ export default function App() {
       <form>
         <div className='container'>
           <div className='content'>
+            <h2>Job Details</h2>
             <div className='title'>
               <div className='title-heading'>Job Title</div>
               <div className='title-input'><input type='text' value={title} onChange={(e) => setTitle(e.target.value)} /></div></div>
             <div className='desc'>
               <div className='desc-heading'>Job Description</div>
-              <textarea rows='4' cols='50' value={description} onChange={(e) => setDescription(e.target.value)} />
+              <textarea rows='3' cols='50' value={description} onChange={(e) => setDescription(e.target.value)} />
             </div>
             <div className='level'>
               <div className='level-heading'>Experience Level</div>
-              <select value={level} onChange={(e) => setLevel(e.target.value)}>
+              <select value={level} defaultValue='Entry Level' onChange={(e) => setLevel(e.target.value)}>
                 <option value="Entry Level" >Entry Level</option>
                 <option value="Intermediate Level">Intermediate Level</option>
                 <option value="High Level">High Level</option>
@@ -138,8 +144,9 @@ export default function App() {
             </div>
             <div className='add'>
               <div className='add-heading'>Add Candidate</div>
-              <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} /></div>
-            <div className='Enter'><button onClick={enter}>Enter</button></div>
+              <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+              <div className='Enter'><button onClick={enter}>Enter</button></div>
+            </div>
             <div className='date'>
               <div className='date-heading'>End Date</div>
               <input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>

@@ -9,11 +9,29 @@
     justify-content: center;
     align-items: center;
   }
-  
+  .info{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    align-items: center;
+  }
+  .info h5{
+    color: #4CAF50;
+  }
+  .info button{
+   padding:5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
   .modal {
+   
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    text-align: center;
+    /* text-align: center; */
   }
-  
+  ul li{
+    list-style: none;
+  }
